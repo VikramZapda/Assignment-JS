@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Field</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #007bff;
+      font-family: Arial, sans-serif;
+    }
+
+    .password-container {
+      position: relative;
+      width: 300px;
+    }
+
+    input[type="password"], input[type="text"] {
+      width: 100%;
+      padding: 10px 40px 10px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .toggle-visibility {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="password-container">
+    <input type="password" id="password" placeholder="Enter your password">
+    <span class="toggle-visibility" onclick="togglePassword()">show</span>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const passwordField = document.getElementById('password');
+      const toggleIcon = document.querySelector('.toggle-visibility');
+
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        toggleIcon.textContent = 'hide'; // Change to "hide" icon
+      } else {
+        passwordField.type = 'password';
+        toggleIcon.textContent = 'show'; // Change to "show" icon
+      }
+    }
+  </script>
+</body>
+</html>

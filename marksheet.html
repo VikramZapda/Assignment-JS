@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marksheet for Information Technology</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #f8f9fa;
+        }
+        .marksheet-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #000;
+            background-color: #fff;
+        }
+        .marksheet-container h2 {
+            text-align: center;
+            font-size: 18px;
+        }
+        .marksheet-container table {
+            width: 100%;
+            margin-top: 15px;
+            border-spacing: 0 10px;
+        }
+        .marksheet-container input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            text-align: left;
+            box-sizing: border-box;
+        }
+        .marksheet-container .result-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 20px 0 10px;
+            background-color: gray;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+            justify-content: center;
+        }
+        .marksheet-container .result-btn:hover {
+            background-color: gray;
+        }
+        .marksheet-container .result {
+            font-size: 14px;
+            text-align: left;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="marksheet-container">
+        <h2>Marksheet for Information Technology</h2>
+        <p>Enter Marks</p>
+        <table>
+            <tr>
+                <td>1. C Language</td>
+                <td><input type="text" id="cLang" /></td>
+            </tr>
+            <tr>
+                <td>2. C++ Language</td>
+                <td><input type="text" id="cppLang" /></td>
+            </tr>
+            <tr>
+                <td>3. Database</td>
+                <td><input type="text" id="database" /></td>
+            </tr>
+            <tr>
+                <td>4. HTML</td>
+                <td><input type="text" id="html" /></td>
+            </tr>
+            <tr>
+                <td>5. CSS</td>
+                <td><input type="text" id="css" /></td>
+            </tr>
+            <tr>
+                <td>6. PHP</td>
+                <td><input type="text" id="php" /></td>
+            </tr>
+            <tr>
+                <td>7. Core Java</td>
+                <td><input type="text" id="coreJava" /></td>
+            </tr>
+        </table>
+        <button class="result-btn" onclick="calculateResult()">Result</button>
+        <div class="result">
+            <p>Total is: <span id="totalMarks">0</span> / 350</p>
+            <p>Percentage is: <span id="percentage">0</span>%</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateResult() {
+            // Fetch values from inputs
+            const cLang = parseInt(document.getElementById("cLang").value) || 0;
+            const cppLang = parseInt(document.getElementById("cppLang").value) || 0;
+            const database = parseInt(document.getElementById("database").value) || 0;
+            const html = parseInt(document.getElementById("html").value) || 0;
+            const css = parseInt(document.getElementById("css").value) || 0;
+            const php = parseInt(document.getElementById("php").value) || 0;
+            const coreJava = parseInt(document.getElementById("coreJava").value) || 0;
+
+            // Calculate total and percentage
+            const totalMarks = cLang + cppLang + database + html + css + php + coreJava;
+            const percentage = ((totalMarks / 350) * 100).toFixed(2);
+
+            // Display results
+            document.getElementById("totalMarks").textContent = totalMarks;
+            document.getElementById("percentage").textContent = percentage;
+        }
+    </script>
+</body>
+</html>
